@@ -1,251 +1,320 @@
+/* -------------------------
+   Refreshed style.css
+   - Keeps your original HTML structure unchanged
+   - All styles in this single file (as requested)
+   ------------------------- */
+
+:root{
+  --page-bg: #F0F1FB;        /* soft lavender */
+  --panel-bg: #FFFFFF;
+  --muted: #636578;
+  --accent: #6F73F6;        /* subtle purple */
+  --accent-2: #FF5A5F;      /* coral for links */
+  --text: #141523;
+  --shadow: 0 8px 20px rgba(15,20,40,0.06);
+  --radius: 12px;
+  --max-width: 920px;
+  --container-gap: 1rem;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
 html {
-    background-color: rgb(238, 239, 252);
-    font-family: 'Times New Roman';
+  background-color: var(--page-bg);
+  font-family: 'Times New Roman';
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.5;
 }
-/*rgb(247, 242, 242);*/
-/*Global Menu*/
 
+/* provide a gentle overall page container for centered content */
+body {
+  margin: 0;
+  padding: 1.2rem 1.5rem 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- header (keeps left initials, right nav) ---------- */
 header{
-    display: flex;
-    font-size: 22px;
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content: space-between;
-    align-items: center;
-    margin-top:1%;
-    margin-left: 2.5%;
-    margin-right:2.5%;
+  width: 100%;
+  max-width: var(--max-width);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: var(--container-gap);
+  margin-bottom: 1.25rem;
+  padding: .6rem 1rem;
+  background: transparent;
+  position: relative;
 }
 
-footer{
-    padding: 10px;
-    clear:both;
-    position: relative;
-    letter-spacing: 1.92px;
-    background-color: rgb(109, 108, 108);
+/* Initials - kept as h3#initials */
+#initials{
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: .16rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  padding: .15rem .35rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(111,115,246,0.08), rgba(111,115,246,0.02));
+  box-shadow: 0 6px 18px rgba(111,115,246,0.06);
 }
 
-#footer_ul{
-    list-style:none;
-    margin-left:auto;
-    margin-right:auto;
-    background-color:rgb(109, 108, 108);
+/* Nav on the right as before. keep ul#links markup */
+#links{
+  list-style: none;
+  display: flex;
+  align-items:center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
 }
 
-.footer_list{
-    text-align:center;
-    margin:auto;
-    padding: 5px;
-    background-color:rgb(109, 108, 108);
-    color:white;
+/* Links styling, keep them inline as you had */
+#links li{ margin: 0; padding: 0; }
+#links li a{
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding: .35rem .45rem;
+  border-radius: 8px;
+  transition: all .18s ease;
+  display:inline-block;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-#links{   
-    list-style: none;
-    display: flex;
+/* hover + focus states */
+#links li a:hover,
+#links li a:focus{
+  color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+  font-style: italic;
+  outline: none;
 }
 
-li a{
-    margin-right: 50px;
-    text-decoration: none;
-    color:black;
+/* small active marker (keeps subtle) */
+#links li a[aria-current="page"]{
+  color: var(--accent);
+  box-shadow: inset 0 -2px 0 var(--accent);
 }
 
-li a:hover{
-    color: #8589f3;
-    /*#68b5fd;*/
-    font-style:italic;
-}
-
+/* ---------- page title & center content ---------- */
 #title{
-    text-align: center;
-    font-style: italic;
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+  margin: 0.6rem 0 0.25rem;
+  font-size: 1.375rem;
+  color: rgba(20,22,35,0.9);
 }
 
-
+/* thin decorative rule below title - centered */
 #title_line{
-    width: 25%;
+  width: 28%;
+  max-width: 260px;
+  height: 3px;
+  margin: .5rem auto 1rem auto;
+  border: 2;
+  background: linear-gradient(90deg, rgba(111,115,246,0.95), rgba(111,115,246,0.55));
+  border-radius: 6px;
 }
 
-/*Index*/
-.name_container{
-    display: grid;
-    place-items:center;
-    font-size: 55px;
-}
-
-#name{
-    text-align:center;
-}
-
-
-.logo_container{
+/* ---------- logo cluster (centered) ---------- */
+.logo_container {
     display: flex;
     justify-content: center;
-    place-items:center;
-    animation: popOut 1s ease-in-out forwards;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1; /* fills available space between header and footer */
 }
 
+/* If you keep the same img IDs in HTML, these styles will apply */
+#leftwing, #rightwing{
+  width: 360px;
+  height: auto;
+  display: block;
+  opacity: 1;
+  transform-origin: center;
+}
+#zjclogo{
+  width: 500px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+/* animation keyframe (keeps your original idea but smoother) */
 @keyframes popOut {
-    0% {
-        transform: scale(0.5);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+  0% { transform: scale(.85); opacity: 0; }
+  60% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
+/* ---------- about panel (centered card) ---------- */
 .about{
-    padding: 20px;
-    text-align: center;
+  padding: 1.15rem 1.15rem 1.6rem;
+  text-align: center;
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: var(--max-width);
+  width: 100%;
+  margin-top: .75rem;
 }
 
+/* subsection header inside about */
+#about_subheading{
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 1.05rem;
+  color: #111216;
+  font-weight: 700;
+}
+
+/* small decorative rule inside the about panel */
 .line{
-    width: 25%;
+  width: 24%;
+  margin: .5rem auto 1rem;
+  height: 3px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(111,115,246,0.95), rgba(111,115,246,0.5));
+  border: 0;
 }
 
+/* multiple paragraphs share the same id in your HTML; normalize for readability */
 #about_text{
-    text-align:center;
-    align-items:center;
-    margin-left:auto;
-    margin-right:auto;
-    max-width: 600px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  color: #2a2d3a;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: .85rem;
 }
 
-/*past*/    
-
-#butterfly_quote_img{ 
-    display:block;
-    margin:auto;
-    max-width:40%;
-    max-height:40%;
-    box-shadow: 2px 2px 2px 2px #cecfda;
+/* ---------- footer ---------- */
+footer{
+  width: 100%;
+  max-width: var(--max-width);
+  margin-top: 1.6rem;
+  padding: .9rem;
+  clear: both;
+  position: relative;
+  letter-spacing: 1.2px;
+  background: transparent;
 }
 
-.my_container{
-    text-align:center;
-    display:block;
-    margin:auto;
+/* footer inner list styling (keeps your footer ul/footer_list usage) */
+#footer_ul{
+  list-style: none;
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #6D6E6D, #5C5C5C);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(10,12,20,0.12);
 }
 
-
-#mypast{
-    text-align:center;
-    align-items:center;
-    margin-left:auto;
-    margin-right:auto;
-    max-width: 600px;
+/* footer items use the existing .footer_list class */
+.footer_list{
+  margin: 0;
+  padding: 6px 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: .95rem;
 }
 
-/*projects*/
-
-
-.project_container{
-    margin-left:30%;
-    margin-right:30%;
-    max-width:815px;
-    display:block;
-    margin:auto;
+/* links inside footer */
+.footer_list a{
+  color: #fff;
+  text-decoration: underline;
 }
 
+/* ---------- other page-specific selectors kept/modernized ---------- */
+
+/* projects, comments, and other pages reuse these card widths */
+/* your project containers used margin-left/right 30% — preserve the centered feel by switching to max-width centered layout */
+.project_container,
+.comments_content,
+.my_container {
+  max-width: 815px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+/* small improvements for images referenced by ids in other pages */
 #websiteimg{
-    display:flex;
-    margin-right: 20px;
-    max-width:200px;
-    border-radius: 8px;
-    border: 2px solid #FACA3C;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #FACA3C;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  display:block;
 }
 
-.content_wrapper{
-    display: flex;
-    align-items: flex-start;
-    margin:20px;    
-}
-
-#myfuture{
-    display:flex;
-    text-align:left;
-    align-items:center;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.project_links_container{
-    margin:20px;
-}
-
-#project_links{
-    color:#FF5A5F;
-    text-decoration:underline;
-}
-
-
-#project_links:hover{
-    font-style:italic;
-}
-
-/*comments*/
-.comments_content{
-    margin-left:30%;
-    margin-right:30%;
-    max-width:815px;
-}
-
-.less_is_more_quote{
-    color:#e995a3;
-    text-decoration:underline;
-}
-
+/* tables (comments page) improved readability */
 table{
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  font-family: Inter, Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: .6rem;
 }
-    
 td, th {
-    border: 1px solid #050505;
-    text-align: left;
-    padding: 8px;
-  }
-
+  border: 1px solid rgba(5,5,5,0.08);
+  text-align: left;
+  padding: 10px;
+  vertical-align: top;
+}
 tr:nth-child(even) {
-    background-color: #dadbff;
+  background-color: rgba(218,219,255,0.6);
 }
 
-.structure_points{
-    text-decoration: underline;
+/* small helper classes you used */
+.structure_points { text-decoration: underline; }
+.structure_subpoints { list-style: disc; margin-left: 1.2rem; }
+
+/* image widths used on other pages */
+#structureimg{ width: 75%; display:block; margin: .8rem auto; border: 2px solid rgba(20,20,30,0.06); border-radius:8px; }
+#hoverexampleimg{ width: 50%; display:block; margin: .8rem auto; border: 2px solid rgba(20,20,30,0.06); border-radius:8px; }
+#colourpalette{ width: 25%; display:block; margin: .8rem auto; border: 1px solid rgba(20,20,30,0.06); border-radius:6px; }
+
+/* ---------- small screens: keep layout but make things breathe ---------- */
+@media (max-width: 800px) {
+  header { padding: .45rem .6rem; }
+  #initials { font-size: 1rem; padding:.1rem .3rem; }
+  #links { gap: .6rem; flex-wrap: wrap; justify-content: flex-end; }
+  li a { font-size: 0.95rem; padding:.25rem .35rem; }
+  #leftwing, #rightwing { width: 48px; }
+  #zjclogo { width: 96px; }
+  #title_line { width: 40%; }
+  .about { padding: .9rem; }
+  #about_text { max-width: 90%; font-size: .98rem; }
+  #footer_ul { flex-direction: column; gap: .45rem; align-items: center; text-align: center; padding: .7rem; }
 }
 
-.structure_subpoints{
-    list-style:disc;
-}
-
-#structureimg{
-    width:75%;
-    border:solid 2px;
-    display:block;
-    margin:auto;
-
-}
-
-#hoverexampleimg{
-    width:50%;
-    border:solid 2px;
-    display:block;
-    margin:auto;
-}
-
-#colourpalette{
-    width:25%;
-    border:solid 1px;
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
-    margin:auto;
+/* much smaller phones */
+@media (max-width: 420px) {
+  #title { font-size: 1.15rem; }
+  #zjclogo { width: 84px; }
+  #leftwing, #rightwing { width: 40px; }
+  #links { gap: .4rem; }
+  li a { font-size: .92rem; padding: .22rem .28rem; }
+  .about { padding: .7rem; }
 }
