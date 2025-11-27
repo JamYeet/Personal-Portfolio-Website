@@ -1,7 +1,5 @@
 /* -------------------------
-   Refreshed style.css
-   - Keeps your original HTML structure unchanged
-   - All styles in this single file (as requested)
+   style.css
    ------------------------- */
 
 :root{
@@ -77,7 +75,7 @@ header{
   padding: 0;
 }
 
-/* Links styling, keep them inline as you had */
+/* Links styling */
 #links li{ margin: 0; padding: 0; }
 #links li a{
   text-decoration: none;
@@ -136,7 +134,6 @@ header{
     flex-grow: 1; /* fills available space between header and footer */
 }
 
-/* If you keep the same img IDs in HTML, these styles will apply */
 #leftwing, #rightwing{
   width: 360px;
   height: auto;
@@ -153,7 +150,7 @@ header{
   box-shadow: var(--shadow);
 }
 
-/* animation keyframe (keeps your original idea but smoother) */
+/* animation keyframes */
 @keyframes popOut {
   0% { transform: scale(.85); opacity: 0; }
   60% { transform: scale(1.06); opacity: 1; }
@@ -191,7 +188,6 @@ header{
   border: 0;
 }
 
-/* multiple paragraphs share the same id in your HTML; normalize for readability */
 #about_text{
   text-align: center;
   margin-left: auto;
@@ -215,7 +211,7 @@ footer{
   background: transparent;
 }
 
-/* footer inner list styling (keeps your footer ul/footer_list usage) */
+/* footer inner list styling */
 #footer_ul{
   list-style: none;
   display: flex;
@@ -248,7 +244,61 @@ footer{
 /* ---------- other page-specific selectors kept/modernized ---------- */
 
 /* projects, comments, and other pages reuse these card widths */
-/* your project containers used margin-left/right 30% — preserve the centered feel by switching to max-width centered layout */
+
+.content_wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Make the image stay left */
+.content_wrapper img {
+    flex-shrink: 0;
+}
+
+/* Make the text wrap to the right naturally */
+.content_wrapper p {
+    flex: 1;
+    margin: 0;
+}
+
+/* Keep links under the image, aligned with image */
+.project_links_container {
+    margin-left: 0; /* reset any inherited margins */
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.1rem; /* tiny alignment correction */
+    margin-bottom: 1.8rem;
+}
+
+.project_links_container a {
+    margin-top: 0.25rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.15s ease;
+}
+
+.project_links_container a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+/* Mobile fix—stack image above text */
+@media (max-width: 700px) {
+    .content_wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .project_links_container {
+        align-items: center;
+    }
+}
+
 .project_container,
 .comments_content,
 .my_container {
@@ -269,7 +319,7 @@ footer{
   display:block;
 }
 
-/* tables (comments page) improved readability */
+/* tables (comments page) */
 table{
   font-family: Inter, Arial, sans-serif;
   border-collapse: collapse;
@@ -286,7 +336,7 @@ tr:nth-child(even) {
   background-color: rgba(218,219,255,0.6);
 }
 
-/* small helper classes you used */
+/* small helper classes */
 .structure_points { text-decoration: underline; }
 .structure_subpoints { list-style: disc; margin-left: 1.2rem; }
 
