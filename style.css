@@ -251,7 +251,6 @@ header{
   border-radius: var(--radius);
   border: 1px solid var(--border);
 }
-.about_bio{ column-count: 2; column-gap: 2.4rem; }
 .about_bio p{ margin: 0 0 1.1rem; color: var(--muted); font-size: 1.02rem; }
 .about_bio p:first-child{ color: var(--text); font-size: 1.15rem; }
 .about_bio em{ color: var(--text); }
@@ -323,7 +322,6 @@ footer{
   #zjclogo{ max-width: 140px; }
   .card_grid, .contact_grid{ grid-template-columns: 1fr; }
   #about_banner_img{ height: auto; aspect-ratio: 2 / 1; }
-  .about_bio{ column-count: 1; }
   .project_grid{ grid-template-columns: 1fr; }
   .project_card.wide{ flex-direction: column; }
   .project_card.wide .proj_media{ width: 100%; aspect-ratio: 16 / 10; }
