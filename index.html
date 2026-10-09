@@ -1,40 +1,97 @@
 <!DOCTYPE html>
-
-<html>
-    
-<head> 
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio of Zijun James Chen, Computer Science (Honours) student at UTS specialising in AI and Data Analytics.">
+    <title>Zijun James Chen | Z.J.C</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>	
-    <body>
+</head>
+<body>
     <header>
-
         <h3 id="initials">Z.J.C</h3>
-        <ul id = "links">
-            <li><a href="index.html">Home</a></li>
+        <ul id="links">
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="past.html">About Me</a></li>
             <li><a href="projects.html">My Projects</a></li>
             <li><a href="comments.html">Comments</a></li>
-        </ul> 
-
+        </ul>
     </header>
 
+    <main>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">// HELLO, WORLD</p>
+                <h1 class="hero_title">Hi, I'm <span class="accent">Zijun James Chen</span></h1>
+                <p class="hero_sub">I'm a Computer Science (Honours) student at the University of Technology Sydney, specialising in Artificial Intelligence and Data Analytics. I'm passionate about building intelligent systems, solving real-world problems with code, and continuously improving my technical skills across multiple domains.</p>
+                <div class="hero_buttons">
+                    <a class="btn primary" href="projects.html">View Projects</a>
+                    <a class="btn" href="past.html">About Me</a>
+                    <a class="btn" href="https://github.com/JamYeet" target="_blank" rel="noopener">GitHub</a>
+                </div>
+                <ul class="hud_chips">
+                    <li>Deep Learning</li>
+                    <li>Game Dev</li>
+                    <li>C++ · Python · C#</li>
+                </ul>
+            </div>
+            <div class="hero_art">
+                <img src="./images/zjclogo.png" alt="Z.J.C logo" id="zjclogo">
+            </div>
+        </section>
 
-        <h1 id="title">Hi, I'm</h1>
-        <hr id="title_line">
-        <br>
-        <div class="logo_container">
-            <img src="./images/wingsleft.png" alt="leftwing" id="leftwing"> <!--Wing Unilateral Cute Cartoon Decoration White Feather Single Wing. (2022, July 20). https://pngtree.com. https://pngtree.com/freepng/wing-unilateral-cute-cartoon-decoration-white-feather-single-wing_8431460.html-->
-            <img src="./images/zjclogo.png" alt="zjclogo" id="zjclogo"> 
-            <img src="./images/wingsright.png" alt="rightwing" id="rightwing"> <!--Wing Unilateral Cute Cartoon Decoration White Feather Single Wing. (2022, July 20). https://pngtree.com. https://pngtree.com/freepng/wing-unilateral-cute-cartoon-decoration-white-feather-single-wing_8431460.html-->
-        </div>
-        <br>
-    </body>
-        
-    <footer>     
-        <ul id = "footer_ul">
-            <li class = "footer_list">Contact Me</li>
-            <li class = "footer_list">mailto:zj.james.chen@gmail.com   |  <a class = "footer_list" href="https://github.com/JamYeet" target="_blank">GitHub Profile</a></li>
-            <li class = "footer_list">Copyright © 2024 Z.J.C</li>
-        </ul>
-    </footer>
+        <section>
+            <div class="section_head">
+                <h2>Featured Projects</h2>
+                <a href="projects.html">All projects →</a>
+            </div>
+            <div class="card_grid">
+                <a class="card" href="projects.html">
+                    <video class="card_media" src="./images/stealthgamedemo.mp4#t=1" muted loop playsinline preload="metadata"></video>
+                    <div class="card_body">
+                        <h3>Stealth Guard AI</h3>
+                        <p>A reusable, Assassin's Creed-style guard AI built in C++ for Unreal Engine as my subsystem in a group tech demo.</p>
+                        <div class="card_tags"><span class="tag">Unreal Engine</span><span class="tag">C++</span></div>
+                    </div>
+                </a>
+                <a class="card" href="projects.html">
+                    <img class="card_media" src="./images/projectvisnet.png" alt="VisNet screenshot">
+                    <div class="card_body">
+                        <h3>VisNet</h3>
+                        <p>VisNet converts video of someone speaking into text by analysing lip movements.</p>
+                        <div class="card_tags"><span class="tag">C++</span><span class="tag">CNN</span><span class="tag">JavaScript</span></div>
+                    </div>
+                </a>
+                <a class="card" href="projects.html">
+                    <img class="card_media" src="./images/projectpacman.png" alt="Debt Runners screenshot">
+                    <div class="card_body">
+                        <h3>Debt Runners</h3>
+                        <p>A modern recreation of Pac-Man using Unity's 2D framework.</p>
+                        <div class="card_tags"><span class="tag">Unity</span><span class="tag">C#</span></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+<footer>
+    <ul id="footer_ul">
+        <li class="footer_list">Zijun James Chen · Computer Science (Honours), UTS</li>
+        <li class="footer_list"><a href="mailto:zj.james.chen@gmail.com">zj.james.chen@gmail.com</a> | <a href="https://github.com/JamYeet" target="_blank" rel="noopener">GitHub Profile</a></li>
+        <li class="footer_list">Copyright © 2024–2026 Z.J.C</li>
+    </ul>
+</footer>
+
+    <script>
+        // play the stealth demo preview while hovering its card
+        document.querySelectorAll('.card video').forEach(function (v) {
+            var card = v.closest('.card');
+            card.addEventListener('mouseenter', function () { v.play().catch(function () {}); });
+            card.addEventListener('mouseleave', function () { v.pause(); });
+        });
+    </script>
+</body>
 </html>
