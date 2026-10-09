@@ -46,7 +46,7 @@ a{ color: var(--accent); }
 img, video{ max-width: 100%; }
 :focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
-header, footer, main, .project_container, .comments_content, .about, .about_banner_container{
+header, footer, main, .comments_content{
   width: 100%;
   max-width: var(--max-width);
 }
@@ -238,6 +238,44 @@ header{
 .project_card.wide{ grid-column: 1 / -1; flex-direction: row; }
 .project_card.wide .proj_media{ width: 50%; aspect-ratio: auto; object-fit: contain; background: #000; }
 
+/* ---------- about page ---------- */
+.about_banner_container{ margin-bottom: 1.8rem; }
+#about_banner_img{
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.about_bio{
+  max-width: 72ch;
+  margin-bottom: 3rem;
+}
+.about_bio p{ margin: 0 0 1.1rem; color: var(--muted); font-size: 1.02rem; }
+.about_bio p:first-child{ color: var(--text); font-size: 1.15rem; }
+.about_bio em{ color: var(--text); }
+
+.timeline{ list-style: none; margin: 0 0 3rem; padding: 0 0 0 1.6rem; border-left: 2px solid var(--border); }
+.timeline li{ position: relative; padding: 0 0 1.8rem 1rem; display: flex; flex-direction: column; gap: .4rem; }
+.timeline li::before{
+  content: "";
+  position: absolute;
+  left: calc(-1.6rem - 7px);
+  top: .25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+.timeline li:first-child::before{ background: var(--accent); box-shadow: 0 0 0 4px rgba(94,234,212,0.15); }
+.timeline_when{ font-family: var(--mono); font-size: .78rem; color: var(--accent-2); letter-spacing: .06rem; text-transform: uppercase; }
+.timeline h3{ margin: 0; font-size: 1.1rem; }
+.timeline p{ margin: 0; color: var(--muted); font-size: .93rem; max-width: 70ch; }
+
 /* ---------- footer ---------- */
 footer{
   margin-top: auto;
@@ -264,13 +302,6 @@ footer{
    ========================================================= */
 #title{ text-align: center; font-size: 2rem; letter-spacing: -0.01em; margin: 1.2rem 0 .4rem; }
 #title_line{ width: 80px; height: 3px; margin: .5rem auto 1.2rem; border: 0; border-radius: 3px; background: var(--accent); }
-
-.about{ padding: 1.4rem 1.6rem; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); }
-.about .line{ display: none; }
-#mypast{ color: var(--muted); margin: 0 0 1rem; }
-#mypast em{ color: var(--text); }
-.about_banner_container{ margin-bottom: 1.2rem; }
-#about_banner_img{ width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--border); }
 
 .comments_content{ color: var(--muted); }
 .comments_content h2{ color: var(--text); }
