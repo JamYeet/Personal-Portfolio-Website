@@ -196,6 +196,48 @@ header{
 .card_body p{ margin: 0; color: var(--muted); font-size: .9rem; }
 .card_tags{ display: flex; flex-wrap: wrap; gap: .35rem; }
 
+/* ---------- page heading (shared) ---------- */
+.page_head{ padding: 2rem 0 1.2rem; }
+.page_head h1{ margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.15; }
+
+/* ---------- projects page ---------- */
+.filters{ display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.6rem; }
+.filter{
+  font-family: var(--mono);
+  font-size: .8rem;
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.filter:hover{ color: var(--text); border-color: var(--accent); }
+.filter[aria-pressed="true"]{ background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 700; }
+
+.project_grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-bottom: 3rem; }
+.project_card{
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color .18s ease;
+}
+.project_card:hover{ border-color: var(--accent); }
+.project_card[hidden]{ display: none; }
+.proj_media{ width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--panel-2); }
+.project_body{ padding: 1.1rem 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .7rem; flex: 1; }
+.project_body h2{ margin: 0; font-size: 1.15rem; letter-spacing: -0.01em; }
+.project_body p{ margin: 0; color: var(--muted); font-size: .93rem; }
+.project_links{ display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: auto; padding-top: .3rem; }
+.project_links a{ font-weight: 600; font-size: .9rem; text-decoration: none; }
+.project_links a:hover{ text-decoration: underline; }
+.project_card.wide{ grid-column: 1 / -1; flex-direction: row; }
+.project_card.wide .proj_media{ width: 50%; aspect-ratio: auto; object-fit: contain; background: #000; }
+
 /* ---------- footer ---------- */
 footer{
   margin-top: auto;
@@ -222,8 +264,6 @@ footer{
    ========================================================= */
 #title{ text-align: center; font-size: 2rem; letter-spacing: -0.01em; margin: 1.2rem 0 .4rem; }
 #title_line{ width: 80px; height: 3px; margin: .5rem auto 1.2rem; border: 0; border-radius: 3px; background: var(--accent); }
-.title_line{ border: 0; height: 1px; background: var(--border); margin: .3rem 0 1rem; }
-#subtitle{ margin: 1.8rem 0 0; font-size: 1.15rem; color: var(--text); }
 
 .about{ padding: 1.4rem 1.6rem; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); }
 .about .line{ display: none; }
@@ -231,20 +271,6 @@ footer{
 #mypast em{ color: var(--text); }
 .about_banner_container{ margin-bottom: 1.2rem; }
 #about_banner_img{ width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--border); }
-
-.content_wrapper{ display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: .5rem; }
-.content_wrapper img, .content_wrapper video{ flex-shrink: 0; }
-.content_wrapper p{ flex: 1; margin: 0; color: var(--muted); }
-#websiteimg, .project_video{
-  width: 280px;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-}
-.project_links_container{ display: flex; flex-direction: column; gap: .25rem; margin-bottom: 1.4rem; }
-.project_links_container a{ font-weight: 600; font-size: .92rem; text-decoration: none; }
-.project_links_container a:hover{ text-decoration: underline; }
 
 .comments_content{ color: var(--muted); }
 .comments_content h2{ color: var(--text); }
@@ -269,8 +295,9 @@ tr:nth-child(even){ background: var(--panel); }
   .hero_art{ order: -1; justify-content: flex-start; }
   #zjclogo{ max-width: 140px; }
   .card_grid{ grid-template-columns: 1fr; }
-  .content_wrapper{ flex-direction: column; }
-  #websiteimg, .project_video{ width: 100%; }
+  .project_grid{ grid-template-columns: 1fr; }
+  .project_card.wide{ flex-direction: column; }
+  .project_card.wide .proj_media{ width: 100%; aspect-ratio: 16 / 10; }
   #footer_ul{ flex-direction: column; align-items: flex-start; }
 }
 
