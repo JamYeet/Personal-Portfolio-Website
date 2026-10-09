@@ -46,7 +46,7 @@ a{ color: var(--accent); }
 img, video{ max-width: 100%; }
 :focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
-header, footer, main, .comments_content{
+header, footer, main{
   width: 100%;
   max-width: var(--max-width);
 }
@@ -198,6 +198,7 @@ header{
 
 /* ---------- page heading (shared) ---------- */
 .page_head{ padding: 2rem 0 1.2rem; }
+.page_sub{ color: var(--muted); max-width: 60ch; margin: 1rem 0 0; font-size: 1.05rem; }
 .page_head h1{ margin: 0; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.15; }
 
 /* ---------- projects page ---------- */
@@ -276,6 +277,25 @@ header{
 .timeline h3{ margin: 0; font-size: 1.1rem; }
 .timeline p{ margin: 0; color: var(--muted); font-size: .93rem; max-width: 70ch; }
 
+/* ---------- contact page ---------- */
+.contact_grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin: 1rem 0 3rem; }
+.contact_card{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: 1.4rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .18s ease;
+}
+.contact_card:hover{ border-color: var(--accent); }
+.contact_label{ font-family: var(--mono); font-size: .78rem; color: var(--accent-2); letter-spacing: .06rem; text-transform: uppercase; }
+.contact_value{ font-size: 1.1rem; font-weight: 600; text-decoration: none; word-break: break-all; }
+.contact_value:hover{ text-decoration: underline; }
+button.btn{ font-family: var(--font); cursor: pointer; }
+
 /* ---------- footer ---------- */
 footer{
   margin-top: auto;
@@ -296,27 +316,6 @@ footer{
 .footer_list a{ color: var(--accent); text-decoration: none; }
 .footer_list a:hover{ text-decoration: underline; }
 
-/* =========================================================
-   Legacy page styles (About / Projects / Comments)
-   Restyled for the dark theme; each is replaced in later parts.
-   ========================================================= */
-#title{ text-align: center; font-size: 2rem; letter-spacing: -0.01em; margin: 1.2rem 0 .4rem; }
-#title_line{ width: 80px; height: 3px; margin: .5rem auto 1.2rem; border: 0; border-radius: 3px; background: var(--accent); }
-
-.comments_content{ color: var(--muted); }
-.comments_content h2{ color: var(--text); }
-.comments_content hr{ border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0; }
-.less_is_more_quote{ color: var(--accent-2); font-style: italic; }
-table{ border-collapse: collapse; width: 100%; margin-top: .6rem; }
-td, th{ border: 1px solid var(--border); text-align: left; padding: 10px; vertical-align: top; }
-tr:nth-child(even){ background: var(--panel); }
-.structure_points{ text-decoration: underline; }
-.structure_subpoints{ list-style: disc; margin-left: 1.2rem; }
-#structureimg, #hoverexampleimg, #colourpalette{ display: block; margin: .8rem auto; border-radius: 8px; border: 1px solid var(--border); }
-#structureimg{ width: 75%; }
-#hoverexampleimg{ width: 50%; }
-#colourpalette{ width: 25%; }
-
 /* ---------- responsive ---------- */
 @media (max-width: 800px){
   body{ padding: 0 1rem; }
@@ -325,7 +324,7 @@ tr:nth-child(even){ background: var(--panel); }
   .hero{ grid-template-columns: 1fr; padding: 1.5rem 0 2rem; gap: 1.5rem; }
   .hero_art{ order: -1; justify-content: flex-start; }
   #zjclogo{ max-width: 140px; }
-  .card_grid{ grid-template-columns: 1fr; }
+  .card_grid, .contact_grid{ grid-template-columns: 1fr; }
   .project_grid{ grid-template-columns: 1fr; }
   .project_card.wide{ flex-direction: column; }
   .project_card.wide .proj_media{ width: 100%; aspect-ratio: 16 / 10; }

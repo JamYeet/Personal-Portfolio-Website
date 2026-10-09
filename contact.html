@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get in touch with Zijun James Chen about internships and software opportunities.">
+    <title>Contact | Z.J.C</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h3 id="initials">Z.J.C</h3>
+        <ul id="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="past.html">About Me</a></li>
+            <li><a href="projects.html">My Projects</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <section class="page_head">
+            <p class="eyebrow">// CONTACT</p>
+            <h1>Get in touch</h1>
+            <p class="page_sub">Thanks for looking at my page!</p>
+        </section>
+
+        <div class="contact_grid">
+            <div class="contact_card">
+                <span class="contact_label">Email</span>
+                <a class="contact_value" id="contact_email" href="mailto:zj.james.chen@gmail.com">zj.james.chen@gmail.com</a>
+                <button class="btn" id="copy_email" type="button">Copy address</button>
+            </div>
+            <div class="contact_card">
+                <span class="contact_label">GitHub</span>
+                <a class="contact_value" href="https://github.com/JamYeet" target="_blank" rel="noopener">github.com/JamYeet</a>
+                <a class="btn" href="https://github.com/JamYeet" target="_blank" rel="noopener">View profile</a>
+            </div>
+        </div>
+    </main>
+
+
+
+<footer>
+    <ul id="footer_ul">
+        <li class="footer_list">Zijun James Chen · Computer Science (Honours), UTS</li>
+        <li class="footer_list"><a href="mailto:zj.james.chen@gmail.com">zj.james.chen@gmail.com</a> | <a href="https://github.com/JamYeet" target="_blank" rel="noopener">GitHub Profile</a></li>
+        <li class="footer_list">Copyright © 2024–2026 Z.J.C</li>
+    </ul>
+</footer>
+
+    <script>
+        // copy the email address to the clipboard
+        var copyBtn = document.getElementById('copy_email');
+        copyBtn.addEventListener('click', function () {
+            var email = document.getElementById('contact_email').textContent;
+            navigator.clipboard.writeText(email).then(function () {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(function () { copyBtn.textContent = 'Copy address'; }, 1800);
+            }).catch(function () {
+                copyBtn.textContent = 'Press Ctrl+C to copy';
+            });
+        });
+    </script>
+</body>
+</html>
