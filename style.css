@@ -368,3 +368,14 @@ tr:nth-child(even) {
   li a { font-size: .92rem; padding: .22rem .28rem; }
   .about { padding: .7rem; }
 }
+/* project demo video (sits beside the text like #websiteimg) */
+.project_video{
+  flex-shrink: 0;
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #FACA3C;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  display: block;
+}
