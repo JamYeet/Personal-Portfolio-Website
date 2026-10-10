@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 ## Overview
-This repository contains the source code for my personal portfolio website, live at [jamyeet.github.io](https://jamyeet.github.io). The website showcases my work, skills, and passion for building intelligent systems and games. It includes a home page, an about page, a filterable projects page, and a contact page.
+This repository contains the source code for my personal portfolio website, live at [jamyeet.github.io]([https://jamyeet.github.io/Personal-Portfolio-Website/]). The website showcases my work, skills, and passion for building intelligent systems and games. It includes a home page, an about page, a filterable projects page, and a contact page.
 
 ## Features
 - **Responsive Design:** Optimised for both desktop and mobile devices, with a dark theme and a light game-HUD flavour.
